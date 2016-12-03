@@ -22,6 +22,7 @@ public:
 	//static std::unique_ptr<ExampleSubsystem> examplesubsystem;
 	static Shooter* shooter;
 	static OI* oi;
+	static MGyro* gyro;
 };
 
 #endif
