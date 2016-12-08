@@ -9,12 +9,12 @@
 #define max(x, y) (((x) > (y)) ? (x) : (y))
 
 DriveTrain::DriveTrain() :
-    Subsystem("DriveTrain"), left(new Talon(DRIVE_LEFT)), right(new Talon(DRIVE_RIGHT)),
+    Subsystem("DriveTrain"), left(new TalonSRX(DRIVE_LEFT)), right(new TalonSRX(DRIVE_RIGHT)),
     encoderLeft(new Encoder(ENCODER_LEFT_1, ENCODER_LEFT_2)),
     encoderRight(new Encoder(ENCODER_RIGHT_1, ENCODER_RIGHT_2)), mult(1.0),
 	ticksToDistance(114), // 112 < ticksToDistance < 117
-	accel(), gyro(new AnalogGyro(GYROPIN)),
-	ultrasonicSensors()
+	accel(), gyro(new AnalogGyro(GYROPIN))//,
+	//ultrasonicSensors()
 {
     encoderLeft->SetDistancePerPulse(1.0);
     encoderRight->SetDistancePerPulse(1.0);
@@ -136,7 +136,7 @@ void DriveTrain::getAccelerations(double* x, double* y, double* z)
 
 void DriveTrain::InitDefaultCommand()
 {
-    SetDefaultCommand(new ArcadeDrive());
+    //SetDefaultCommand(new ArcadeDrive()); //Sauhaarda set your PID command here
 }
 
 double DriveTrain::getLeftEncoderDistance()

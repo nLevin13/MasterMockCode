@@ -11,8 +11,8 @@ class DriveTrain: public Subsystem
 
 
 
-        Talon* left;
-        Talon* right;
+        TalonSRX* left;
+        TalonSRX* right;
         Encoder* encoderLeft;
         Encoder* encoderRight;
         float mult;
@@ -45,7 +45,8 @@ class DriveTrain: public Subsystem
 
         double readUltra(uint16_t sensorIndex);
 
-        //void setSpeedLeft
+        //void setSpeedLeft(double speed);
+        //void setSpeedRight(double speed);   //if needed
 
         void InitDefaultCommand();
 };
