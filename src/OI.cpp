@@ -1,6 +1,23 @@
 #include "OI.h"
 
-OI::OI()
+OI::OI():
+	driveStick(new Joystick(0)), operatorStick(new Joystick(1))
 {
-	// Process operator interface input here.
+
+}
+
+Joystick* OI::getDriveStick()
+{
+    return driveStick;
+}
+
+Joystick* OI::getOperatorStick()
+{
+    return operatorStick;
+}
+
+OI::~OI()
+{
+    delete driveStick;
+    delete operatorStick;
 }
