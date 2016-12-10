@@ -4,6 +4,8 @@
 #include "../CommandBase.h"
 #include "WPILib.h"
 #include "WVPIDController.h"
+#include "DriveTrain.h"
+#include "DriveTrain.cpp"
 
 
 class PID: public CommandBase
@@ -15,9 +17,11 @@ private:
 	double distanceGoal;
 	double angleGoal;
 	Gyro* gyro;
-	Encoder* encoder;
-	TalonSRX* leftMotor;
-	TalonSRX* rightMotor;
+	Encoder* encoder1;
+	// TODO: rename encoders later for the shooter to limit confusion
+	Encoder* encoder2;
+	DriveTrain* motorRun;
+
 
 public:
 	PID();

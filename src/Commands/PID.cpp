@@ -1,10 +1,14 @@
 #include "PID.h"
+#include "DriveTrain.h"
+#include "DriveTrain.cpp"
+
 
 PID::PID()
 {
 	Requires(MGyro);
+	Requires(DriveTrain);
 	anglePID = new WVPIDController(1, 1, 1, angleGoal, false);
-	distancePID = new WVPIDController(1, 1, 1, distanceGoal, false);
+
 
 }
 
@@ -12,21 +16,31 @@ PID::PID()
 void PID::Initialize()
 {
 	gyro->Reset();
-	encoder->Reset();
+	encoder1->Reset();
+	encoder2->Reset();
+	motorRun->resetEncoders();
 }
 
 // Called repeatedly when this Command is scheduled to run
 void PID::Execute()
 {
 	float measuredVal = gyro->GetAngle();
-	double distanceVal = encoder->GetDistance();
+
 	bool cvUpdated = false; // TODO: Get CV Data from Network Tables
 	if(cvUpdated){
 		anglePID = new WVPIDController(1, 1, 1, angleGoal, false);
 		distancePID = new WVPIDController(1, 1, 1, distanceGoal, false);
 	}
-	double angleMod = anglePID->Tick(measuredVal);
-	double distanceMod = distancePID->Tick(distanceVal);
+	float angleMod = anglePID->Tick(measuredVal);
+	float distanceMod = motorRun->getDistance();
+
+	motorRun->arcadeDrive(distanceMod, angleMod);
+
+
+
+
+
+
 
 
 }
