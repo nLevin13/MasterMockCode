@@ -6,6 +6,8 @@
 #include "WVPIDController.h"
 #include "DriveTrain.h"
 #include "DriveTrain.cpp"
+#include "GyroL3GD20H.cpp"
+#include "GyroL3GD20H.h"
 
 
 class PID: public CommandBase
@@ -16,8 +18,6 @@ private:
 	WVPIDController* distancePID;
 	double distanceGoal;
 	double angleGoal;
-	Gyro* gyro;
-	// TODO: rename encoders later for the shooter to limit confusion
 	DriveTrain* motorRun;
 
 

@@ -5,7 +5,6 @@
 
 PID::PID()
 {
-	Requires(MGyro);
 	Requires(DriveTrain);
 	anglePID = new WVPIDController(1, 1, 1, angleGoal, false);
 	distancePID =  new WVPIDController(1, 1, 1, distanceGoal, false);
@@ -15,14 +14,14 @@ PID::PID()
 // Called just before this Command runs the first time
 void PID::Initialize()
 {
-	gyro->Reset();
+	motorRun->resetGyro();
 	motorRun->resetEncoders();
 }
 
 // Called repeatedly when this Command is scheduled to run
 void PID::Execute()
 {
-	float measuredVal = gyro->GetAngle();
+	float measuredVal = motorRun->getGyroAngle();
 
 	bool cvUpdated = false; // TODO: Get CV Data from Network Tables
 	if(cvUpdated){
