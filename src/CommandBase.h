@@ -22,6 +22,7 @@ public:
 	//static std::unique_ptr<ExampleSubsystem> examplesubsystem;
 	static Shooter* shooter;
 	static DriveTrain* drive;
+	//static MGyro* gyro;
 	static OI* oi;
 };
 
