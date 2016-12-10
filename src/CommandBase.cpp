@@ -5,6 +5,7 @@
 // Initialize a single static instance of all of your subsystems to NULL
 //std::unique_ptr<ExampleSubsystem> CommandBase::examplesubsystem;
 Shooter* CommandBase::shooter = NULL;
+DriveTrain* CommandBase::drive = NULL;
 OI* CommandBase::oi = NULL;
 MGyro* CommandBase::gyro = NULL;
 
@@ -24,7 +25,9 @@ void CommandBase::init()
 	// Create a single static instance of all of your subsystems. The following
 	// line should be repeated for each subsystem in the project.
 	//examplesubsystem.reset(new ExampleSubsystem());
+
 	shooter = new Shooter();
+	drive = new DriveTrain();
 	oi = new OI(); //OI has to be created after all other subsystems
 	gyro = new MGyro();
 }

@@ -20,4 +20,7 @@
 //const int RANGE_FINDER_PORT = 1;
 //const int RANGE_FINDER_MODULE = 1;
 
+const double SHOOTER_ANGLE = 33;//set this to the constant angle
+const double TARGET_HEIGHT = 7;//whatever the height is
+
 #endif

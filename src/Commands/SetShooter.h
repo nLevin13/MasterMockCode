@@ -13,7 +13,7 @@ public:
 	bool IsFinished();
 	void End();
 	void Interrupted();
-	void findSpeed();
+	double findSpeed(double dist);
 private:
 	double distance;
 	//double azimuth;

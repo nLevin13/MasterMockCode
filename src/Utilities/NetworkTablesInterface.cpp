@@ -1,18 +1,24 @@
 /*
  * NetworkTablesInterface.cpp
  *
- *  Created on: Dec 7, 2016
+ *  Created on: Oct 29, 2016
  *      Author: Nir
  */
 
 #include <Utilities/NetworkTablesInterface.h>
 
-NetworkTablesInterface::NetworkTablesInterface() {
-	// TODO Auto-generated constructor stub
-
+bool NetworkTablesInterface::targetFound() {
+	return NetworkTable::GetTable("cv")->GetBoolean("cv_target", false);
 }
 
-NetworkTablesInterface::~NetworkTablesInterface() {
-	// TODO Auto-generated destructor stub
+double NetworkTablesInterface::getDistance() {
+	return NetworkTable::GetTable("cv")->GetNumber("cv_dist", -1.0);
 }
 
+double NetworkTablesInterface::getAzimuth() {
+	return NetworkTable::GetTable("cv")->GetNumber("cv_azim", -1.0);
+}
+
+double NetworkTablesInterface::getAltitude() {
+	return NetworkTable::GetTable("cv")->GetNumber("cv_alti", -1.0);
+}

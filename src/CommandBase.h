@@ -21,6 +21,8 @@ public:
 	// Create a single static instance of all of your subsystems
 	//static std::unique_ptr<ExampleSubsystem> examplesubsystem;
 	static Shooter* shooter;
+	static DriveTrain* drive;
+	//static MGyro* gyro;
 	static OI* oi;
 	static MGyro* gyro;
 };
