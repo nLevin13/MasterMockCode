@@ -17,9 +17,7 @@ private:
 	double distanceGoal;
 	double angleGoal;
 	Gyro* gyro;
-	Encoder* encoder1;
 	// TODO: rename encoders later for the shooter to limit confusion
-	Encoder* encoder2;
 	DriveTrain* motorRun;
 
 

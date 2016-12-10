@@ -1,14 +1,14 @@
 #include "PID.h"
 #include "DriveTrain.h"
 #include "DriveTrain.cpp"
-
+#define abs(x)  (x<0)?-x:x
 
 PID::PID()
 {
 	Requires(MGyro);
 	Requires(DriveTrain);
 	anglePID = new WVPIDController(1, 1, 1, angleGoal, false);
-
+	distancePID =  new WVPIDController(1, 1, 1, distanceGoal, false);
 
 }
 
@@ -16,8 +16,6 @@ PID::PID()
 void PID::Initialize()
 {
 	gyro->Reset();
-	encoder1->Reset();
-	encoder2->Reset();
 	motorRun->resetEncoders();
 }
 
@@ -31,17 +29,13 @@ void PID::Execute()
 		anglePID = new WVPIDController(1, 1, 1, angleGoal, false);
 		distancePID = new WVPIDController(1, 1, 1, distanceGoal, false);
 	}
+
+	double leftDistance = motorRun->getLeftEncoderDistance();
+	double rightDistance = motorRun->getRightEncoderDistance();
 	float angleMod = anglePID->Tick(measuredVal);
-	float distanceMod = motorRun->getDistance();
+	float distanceMod = distancePID->Tick(abs((leftDistance-rightDistance)/2.0));
 
 	motorRun->arcadeDrive(distanceMod, angleMod);
-
-
-
-
-
-
-
 
 }
 
