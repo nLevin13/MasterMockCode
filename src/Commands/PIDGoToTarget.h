@@ -10,7 +10,7 @@
 #include "GyroL3GD20H.h"
 
 
-class PID: public CommandBase
+class PIDGoToTarget: public CommandBase
 {
 
 private:
@@ -22,7 +22,7 @@ private:
 
 
 public:
-	PID();
+	PIDGoToTarget();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

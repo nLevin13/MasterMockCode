@@ -1,9 +1,9 @@
-#include "PID.h"
+#include <Commands/PIDGoToTarget.h>
 #include "DriveTrain.h"
 #include "DriveTrain.cpp"
 #define abs(x)  (x<0)?-x:x
 
-PID::PID()
+PIDGoToTarget::PIDGoToTarget()
 {
 	Requires(DriveTrain);
 	anglePID = new WVPIDController(1, 1, 1, angleGoal, false);
@@ -12,14 +12,14 @@ PID::PID()
 }
 
 // Called just before this Command runs the first time
-void PID::Initialize()
+void PIDGoToTarget::Initialize()
 {
 	motorRun->resetGyro();
 	motorRun->resetEncoders();
 }
 
 // Called repeatedly when this Command is scheduled to run
-void PID::Execute()
+void PIDGoToTarget::Execute()
 {
 	float measuredVal = motorRun->getGyroAngle();
 
@@ -39,20 +39,20 @@ void PID::Execute()
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool PID::IsFinished()
+bool PIDGoToTarget::IsFinished()
 {
 	return false;
 }
 
 // Called once after isFinished returns true
-void PID::End()
+void PIDGoToTarget::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void PID::Interrupted()
+void PIDGoToTarget::Interrupted()
 {
 
 }
