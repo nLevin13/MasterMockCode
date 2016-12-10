@@ -33,7 +33,7 @@ void PID::Execute()
 	double leftDistance = motorRun->getLeftEncoderDistance();
 	double rightDistance = motorRun->getRightEncoderDistance();
 	float angleMod = anglePID->Tick(measuredVal);
-	float distanceMod = distancePID->Tick(abs((leftDistance-rightDistance)/2.0));
+	float distanceMod = distancePID->Tick((abs(leftDistance)+abs(rightDistance))/2.0);
 
 	motorRun->arcadeDrive(distanceMod, angleMod);
 
