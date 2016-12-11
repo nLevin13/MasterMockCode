@@ -22,5 +22,9 @@
 
 const double SHOOTER_ANGLE = 33;//set this to the constant angle
 const double TARGET_HEIGHT = 7;//whatever the height is
+const double ENCODER_RIGHT_1=0;
+const double ENCODER_RIGHT_2=1;
+const double ENCODER_LEFT_1=2;
+const double ENCODER_LEFT_2=3;
 
 #endif

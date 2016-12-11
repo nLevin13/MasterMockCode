@@ -2,25 +2,25 @@
 
 #include "../RobotMap.h"
 #include "../CommandBase.h"
-#include "../Commands/DriveTrain/ArcadeDrive.h"
+#include "../Commands/ArcadeDrive.h"
 
 #include "DriveTrain.h"
 
 #define max(x, y) (((x) > (y)) ? (x) : (y))
 
 DriveTrain::DriveTrain() :
-    Subsystem("DriveTrain"), left(new TalonSRX(DRIVE_LEFT)), right(new TalonSRX(DRIVE_RIGHT)),
+    Subsystem("DriveTrain"), left(new Talon(15)), right(new Talon(14)),
     encoderLeft(new Encoder(ENCODER_LEFT_1, ENCODER_LEFT_2)),
     encoderRight(new Encoder(ENCODER_RIGHT_1, ENCODER_RIGHT_2)), mult(1.0),
 	ticksToDistance(114), // 112 < ticksToDistance < 117
-	accel(), gyro(new AnalogGyro(GYROPIN))//,
+	accel(), gyro(new wvrobotics::GyroL3GD20H(I2C::kOnboard, 0x6b))//wvrobotic::GyroL3GD20H( wvrobotics::GyroL3GD20H::GyroL3GD20H))//,
 	//ultrasonicSensors()
 {
     encoderLeft->SetDistancePerPulse(1.0);
     encoderRight->SetDistancePerPulse(1.0);
 
-    gyro->Calibrate();
-    gyro->Reset();
+    //gyro->Calibrate();
+    //gyro->Reset();
 }
 
 
@@ -151,12 +151,15 @@ double DriveTrain::getRightEncoderDistance()
 
 double DriveTrain::getGyroAngle()
 {
-    return -gyro->GetAngle();
+	wvrobotics::GyroAxis axis;
+    gyro->getAngle(&axis);
+    axis.overrunofAxis();
+    return axis.getzAxis();
 }
 
 void DriveTrain::resetGyro()
 {
-    gyro->Reset();
+    gyro->resetGyro();
 }
 
 double DriveTrain::readUltra(uint16_t sensorIndex)

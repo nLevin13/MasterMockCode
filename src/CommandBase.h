@@ -6,6 +6,8 @@
 //#include "Subsystems/ExampleSubsystem.h"
 #include "OI.h"
 #include "WPILib.h"
+#include "Shooter.h"
+#include "DriveTrain.h"
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
