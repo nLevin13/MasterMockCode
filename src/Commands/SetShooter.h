@@ -3,7 +3,8 @@
 
 #include "../CommandBase.h"
 #include "WPILib.h"
-#include "NetworkTablesInterface.h"
+#include "../Utilities/NetworkTablesInterface.h"
+#include "Utilities/WVPIDController.h"
 class SetShooter: public CommandBase
 {
 public:

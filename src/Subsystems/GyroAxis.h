@@ -57,7 +57,7 @@ public:
 
 	void overrunofAxis()
 	 	{
-	 		xAxis = xAxis%360;
+	 		xAxis = (int)xAxis % 360;
 	 		if(xAxis > 180)
 	 		{
 	 			xAxis -= 360;
@@ -67,7 +67,7 @@ public:
 	 			xAxis += 360;
 	 		}
 
-	 		zAxis = zAxis%360;
+	 		zAxis = (int)zAxis%360;
 	 		if(zAxis > 180)
 	 		{
 	 			zAxis -= 360;
@@ -77,7 +77,7 @@ public:
 	 			zAxis += 360;
 	 		}
 
-	 		yAxis = yAxis%360;
+	 		yAxis = (int)yAxis%360;
 	 		if(yAxis > 180)
 	 		{
 	 			yAxis -= 360;

@@ -9,7 +9,7 @@
 #define max(x, y) (((x) > (y)) ? (x) : (y))
 
 DriveTrain::DriveTrain() :
-    Subsystem("DriveTrain"), left(new Talon(15)), right(new Talon(14)),
+    Subsystem("DriveTrain"), left(new Talon(1)), right(new Talon(0)),
     encoderLeft(new Encoder(ENCODER_LEFT_1, ENCODER_LEFT_2)),
     encoderRight(new Encoder(ENCODER_RIGHT_1, ENCODER_RIGHT_2)), mult(1.0),
 	ticksToDistance(114), // 112 < ticksToDistance < 117
@@ -136,7 +136,7 @@ void DriveTrain::getAccelerations(double* x, double* y, double* z)
 
 void DriveTrain::InitDefaultCommand()
 {
-    //SetDefaultCommand(new ArcadeDrive()); //Sauhaarda set your PID command here
+    SetDefaultCommand(new ArcadeDrive()); //Sauhaarda set your PID command here
 }
 
 double DriveTrain::getLeftEncoderDistance()

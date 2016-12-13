@@ -19,7 +19,7 @@ private:
 public:
 	Shooter();
 	~Shooter();
-	void InitDefaultCommand();
+	//void InitDefaultCommand();
 	void setSpeed(double speed);
 	double getRate();
 	void loadBall();
