@@ -9,8 +9,10 @@ WVPIDController::WVPIDController(double Kp, double Ki, double Kd,
     this->Kd = Kd;
     this->setPoint = setPoint;
     this->integralThreshold = integralThreshold;
+    error = 0;
     previousError = 0.0;
     integral = 0.0;
+    lastPWM = 0;
 }
 
 double WVPIDController::Tick(double measuredValue)

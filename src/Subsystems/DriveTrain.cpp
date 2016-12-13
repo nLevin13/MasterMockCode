@@ -141,6 +141,7 @@ void DriveTrain::InitDefaultCommand()
 
 double DriveTrain::getLeftEncoderDistance()
 {
+	//return this->left->GetPosition();
 	return this->encoderLeft->GetDistance();
 }
 
