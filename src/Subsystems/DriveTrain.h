@@ -3,7 +3,9 @@
 
 #include <WPILib.h>
 #include "Commands/Subsystem.h"
-#include "../Sensors/UltrasonicSensors.h"
+//#include "../Sensors/UltrasonicSensors.h"
+#include "Subsystems/GyroL3GD20H.h"
+#include "Subsystems/GyroAxis.h"
 
 class DriveTrain: public Subsystem
 {
@@ -11,14 +13,14 @@ class DriveTrain: public Subsystem
 
 
 
-        TalonSRX* left;
-        TalonSRX* right;
+        Talon* left;
+        Talon* right;
         Encoder* encoderLeft;
         Encoder* encoderRight;
         float mult;
         int ticksToDistance;
         BuiltInAccelerometer* accel;
-        AnalogGyro* gyro;
+        wvrobotics::GyroL3GD20H* gyro;
         //DigitalGyro* gyro;
         //UltrasonicSensors* ultrasonicSensors;
 

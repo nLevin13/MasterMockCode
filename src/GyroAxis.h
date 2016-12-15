@@ -54,9 +54,42 @@ public:
 		yAxis += y;
 		zAxis += z;
 	}
-	~GyroAxis();
-};
+	void overrunofAxis()
+		{
+			xAxis = xAxis%360;
+			if(xAxis > 180)
+			{
+				xAxis -= 360;
+			}
+			else if(xAxis < -180)
+			{
+				xAxis += 360;
+			}
 
-} /* namespace wvrobotics */
+			zAxis = zAxis%360;
+			if(zAxis > 180)
+			{
+				zAxis -= 360;
+			}
+			else if(zAxis < -180)
+			{
+				zAxis += 360;
+			}
 
-#endif /* GYROAXIS_H_ */
+			yAxis = yAxis%360;
+			if(yAxis > 180)
+			{
+				yAxis -= 360;
+			}
+			else if(yAxis < -180)
+			{
+				yAxis += 360;
+			}
+
+		}
+		~GyroAxis();
+	};
+
+	} /* namespace wvrobotics */
+
+	#endif /* GYROAXIS_H_ */

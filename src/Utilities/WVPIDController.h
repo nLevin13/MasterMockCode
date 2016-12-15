@@ -19,11 +19,12 @@ class WVPIDController
         double GetLastPWM();
 
     private:
-        bool integralThreshold;
+
         double Kp;
         double Ki;
         double Kd;
         double setPoint;
+        bool integralThreshold;
         double error;
         double previousError;
         double integral;

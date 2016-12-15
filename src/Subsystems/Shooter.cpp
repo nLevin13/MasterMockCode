@@ -6,8 +6,8 @@ Shooter::Shooter() :
 {
 	shooterLeft = new TalonSRX(LEFTSHOOTER);//LEFTSHOOTER, RIGHTSHOOTER, etc are the pin numbers
 	shooterRight = new TalonSRX(RIGHTSHOOTER);
-	encoderLeft = new Encoder(SHOOTERENCODERLEFT);
-	encoderRight = new Encoder(SHOOTERENCODERRIGHT);
+	encoderLeft = new Encoder(6,7);
+	encoderRight = new Encoder(8,9);
 	pneumatic = new Compressor();
 	//adjustAngle = new TalonSRX(ADJUSTANGLE);
 	//angleencoder = new Encoder(ANGLEENCODER);
