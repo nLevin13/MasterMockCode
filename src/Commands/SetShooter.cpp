@@ -49,7 +49,7 @@ bool SetShooter::IsFinished()
 // Called once after isFinished returns true
 void SetShooter::End()
 {
-
+	shooter->loadBall();
 }
 
 // Called when another command which requires one or more of the same

@@ -13,8 +13,8 @@ class DriveTrain: public Subsystem
 
 
 
-        Talon* left;
-        Talon* right;
+        CANTalon* left;
+        CANTalon* right;
         Encoder* encoderLeft;
         Encoder* encoderRight;
         float mult;
@@ -46,6 +46,8 @@ class DriveTrain: public Subsystem
         void resetGyro();
 
         double readUltra(uint16_t sensorIndex);
+
+        double getVoltage(char rorl);
 
         //void setSpeedLeft(double speed);
         //void setSpeedRight(double speed);   //if needed
