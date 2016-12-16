@@ -21,7 +21,8 @@ double Shooter::getRate(){
 	return (encoderLeft->GetRate() + encoderRight->GetRate())/2.;
 }
 void Shooter::loadBall(){
-	//this is pneumatics section, so we don't need to code this right now
+	if(pneumatic->Enabled())
+		pneumatic->Start();
 }
 void Shooter::resetEncoder(){
 	encoderLeft->Reset();
