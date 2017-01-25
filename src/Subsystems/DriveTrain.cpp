@@ -9,7 +9,7 @@
 #define max(x, y) (((x) > (y)) ? (x) : (y))
 
 DriveTrain::DriveTrain() :
-    Subsystem("DriveTrain"), left(new Talon(1)), right(new Talon(0)),
+    Subsystem("DriveTrain"), left(new Talon(0)), right(new Talon(1)),
     encoderLeft(new Encoder(ENCODER_LEFT_1, ENCODER_LEFT_2)),
     encoderRight(new Encoder(ENCODER_RIGHT_1, ENCODER_RIGHT_2)), mult(1.0),
 	ticksToDistance(114), // 112 < ticksToDistance < 117
@@ -167,4 +167,12 @@ void DriveTrain::resetGyro()
 double DriveTrain::readUltra(uint16_t sensorIndex)
 {
 	return 0.0;//ultrasonicSensors->ReadUltra(sensorIndex);
+}
+
+void DriveTrain::setSpeedLeft(double speed){
+	left->SetSpeed(speed);
+}
+
+void DriveTrain::setSpeedRight(double speed){
+	right->SetSpeed(speed);
 }

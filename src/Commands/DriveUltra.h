@@ -3,6 +3,7 @@
 
 #include "../CommandBase.h"
 #include "WPILib.h"
+#include "../Utilities/WVPIDController.h"
 
 class DriveUltra: public CommandBase
 {
@@ -13,6 +14,8 @@ public:
 	bool IsFinished();
 	void End();
 	void Interrupted();
+private:
+	WVPIDController* pid;
 };
 
 #endif

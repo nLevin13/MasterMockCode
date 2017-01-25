@@ -20,7 +20,7 @@ private:
 	//double azimuth;
 	double speed;
 	double altitude;
-	WVPIDController* speedPid;
+	//WVPIDController* speedPid;
 };
 
 #endif

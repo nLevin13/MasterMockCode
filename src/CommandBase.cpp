@@ -6,8 +6,9 @@
 //std::unique_ptr<ExampleSubsystem> CommandBase::examplesubsystem;
 Shooter* CommandBase::shooter = NULL;
 DriveTrain* CommandBase::drive = NULL;
+Piston* CommandBase::piston = NULL;
 OI* CommandBase::oi = NULL;
-MGyro* CommandBase::gyro = NULL;
+//MGyro* CommandBase::gyro = NULL;
 
 CommandBase::CommandBase(const std::string &name) :
 		Command(name)
@@ -28,6 +29,7 @@ void CommandBase::init()
 
 	shooter = new Shooter();
 	drive = new DriveTrain();
+	piston = new Piston();
 	oi = new OI(); //OI has to be created after all other subsystems
-	gyro = new MGyro();
+	//gyro = new MGyro();
 }

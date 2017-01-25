@@ -8,6 +8,7 @@
 #include "WPILib.h"
 #include "Subsystems/Shooter.h"
 #include "Subsystems/DriveTrain.h"
+#include "Subsystems/Piston.h"
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -24,9 +25,10 @@ public:
 	//static std::unique_ptr<ExampleSubsystem> examplesubsystem;
 	static Shooter* shooter;
 	static DriveTrain* drive;
+	static Piston* piston;
 	//static MGyro* gyro;
 	static OI* oi;
-	static MGyro* gyro;
+	//static MGyro* gyro;
 };
 
 #endif

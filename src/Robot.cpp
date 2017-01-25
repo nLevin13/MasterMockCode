@@ -1,13 +1,15 @@
 #include "WPILib.h"
 #include "Commands/Command.h"
-//#include "Commands/ExampleCommand.h"
+#include "Commands/Autonomous.h"
 #include "CommandBase.h"
+#include "Commands/DriveUltra.h"
 
 class Robot: public IterativeRobot
 {
 private:
 	std::unique_ptr<Command> autonomousCommand;
 	SendableChooser *chooser;
+	Autonomous* group;
 
 	void RobotInit()
 	{
@@ -16,6 +18,7 @@ private:
 		//chooser->AddDefault("Default Auto", new ExampleCommand());
 		//chooser->AddObject("My Auto", new MyAutoCommand());
 		SmartDashboard::PutData("Auto Modes", chooser);
+		group = new Autonomous();
 	}
 
 	/**
@@ -52,13 +55,18 @@ private:
 
 		autonomousCommand.reset((Command *)chooser->GetSelected());
 
-		if (autonomousCommand != NULL)
-			autonomousCommand->Start();
+		if (group != NULL)
+			group->Start();
+		//DriveUltra* dr = new DriveUltra();
+		//dr->Start();
 	}
 
 	void AutonomousPeriodic()
 	{
+
 		Scheduler::GetInstance()->Run();
+
+
 	}
 
 	void TeleopInit()

@@ -11,10 +11,10 @@ private:
 	// for methods that implement subsystem capabilities
 	TalonSRX* shooterLeft;
 	TalonSRX* shooterRight;
-	TalonSRX* adjustAngle; //not sure if its a TalonSRX motor
+	//TalonSRX* adjustAngle; //not sure if its a TalonSRX motor
 	Encoder* encoderLeft;
 	Encoder* encoderRight;
-	Encoder* angleencoder;
+	//Encoder* angleencoder;
 	Compressor* pneumatic; //not sure if we're using pneumatics
 public:
 	Shooter();

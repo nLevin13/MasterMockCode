@@ -47,8 +47,8 @@ class DriveTrain: public Subsystem
 
         double readUltra(uint16_t sensorIndex);
 
-        //void setSpeedLeft(double speed);
-        //void setSpeedRight(double speed);   //if needed
+        void setSpeedLeft(double speed);
+        void setSpeedRight(double speed);   //if needed
 
         void InitDefaultCommand();
 };
